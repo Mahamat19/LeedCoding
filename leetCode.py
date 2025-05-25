@@ -32,3 +32,24 @@ def isPalindrome(self, x: int) -> bool:
             return True
         else:
             return False
+        
+# 15. 3Sum
+#Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+#Notice that the solution set must not contain duplicate triplets.
+def threeSum(self, nums: List[int]) -> List[List[int]]:
+    Output = [] #Output list to be filed
+    Set_ver = set()
+
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            for k in range(j+1, len(nums)): # The fact that j (resp. k) starts from i+1 (resp. j+1) means that i != j, i != k, and j != k 
+                if nums[i] + nums[j] + nums[k] == 0:
+                    sum_got_sorted = sorted([nums[i], nums[j], nums[k]])
+                    sum_got_tuple = tuple(sum_got_sorted)
+                    if sum_got_tuple not in Set_ver:
+                        Set_ver.add(sum_got_tuple)
+                        Output.append(sum_got_tuple)
+                        
+                            
+                    
+    return Output
